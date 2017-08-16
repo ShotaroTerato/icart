@@ -52,7 +52,8 @@ namespace icart_mini_gazebo
     class ICartMiniHWSim : public gazebo_ros_control::RobotHWSim
     {
     private:
-        static const double max_drive_joint_torque_ = 20.0;
+        //static const double max_drive_joint_torque_ = 20.0;
+        const double max_drive_joint_torque_ = 20.0;
         
         double cmd_[2];
         double pos_[2];
@@ -118,7 +119,7 @@ namespace icart_mini_gazebo
         void writeSim(ros::Time time, ros::Duration period){
             for(int i=0; i < 2; i++){
                 joint_[i]->SetVelocity(0, cmd_[i]);
-                joint_[i]->SetMaxForce(0, max_drive_joint_torque_);
+                //joint_[i]->SetMaxForce(0, max_drive_joint_torque_);
             }
             
             /*
